@@ -1,5 +1,14 @@
 public class GPGSV extends GPSReader{
+    private int liczbaLinii;
+
+    private int poprzedniaLinia = 1;
+
     public void parse(String[] data) {
+        setLiczbaLinii(Integer.parseInt(data[1]));
+        int linia = Integer.parseInt(data[2]);
+        if (linia == 1 || linia - 1 == poprzedniaLinia) {
+            setPoprzedniaLinia(linia);
+        }
         ParsedData.getParsedData().put(Parametry.SUMA, data[data.length - 1]);
         ParsedData.getParsedData().put(Parametry.WIDOCZNE_SATELITY, data[3]);
         ParsedData.getParsedData().put(Parametry.SLEDZONE_SATELITY, data[3]);
@@ -17,7 +26,13 @@ public class GPGSV extends GPSReader{
                 ParsedData.getParsedData().put(Parametry.AZYMUT, ParsedData.getParsedData().get(Parametry.AZYMUT) + ", " + data[i]);
                 ParsedData.getParsedData().put(Parametry.SNR, ParsedData.getParsedData().get(Parametry.SNR) + ", " + data[i]);
             }
-
         }
+    }
+    public void setPoprzedniaLinia(int poprzedniaLinia) {
+        this.poprzedniaLinia = poprzedniaLinia;
+    }
+
+    public void setLiczbaLinii(int liczbaLinii) {
+        this.liczbaLinii = liczbaLinii;
     }
 }
