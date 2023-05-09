@@ -1,5 +1,4 @@
 public class GPGLL extends GPSReader{
-    @Override
     public void parse(String[] data) {
         // Wypisz informacje systemowe
         ParsedData.getParsedData().put(Parametry.CZAS_USTALANIA_POZYCJI, data[5]);

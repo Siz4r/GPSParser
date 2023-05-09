@@ -1,5 +1,4 @@
 public class GPRMC extends GPSReader{
-    @Override
     public void parse(String[] data) {
         ParsedData.getParsedData().put(Parametry.DATA, data[9]);
         ParsedData.getParsedData().put(Parametry.CZAS, data[1]);

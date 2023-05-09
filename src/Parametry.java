@@ -38,8 +38,10 @@ public enum Parametry {
     STATUS("Status urzadzenia (np. aktywny): ", data -> (data.equals("A") ? "aktywny" : "nieaktywny")),
     WYSOKOSC("Wysokosc n.p.m.: ", data -> data),
     POMIAR("Jakosc pomiaru: ", data -> data),
-    CZAS_USTALANIA_POZYCJI("Czas ustalania pozycji wzgledem satelitow(UTC): ", data -> String.join(":", data.split("(?<=\\G.{" + 2 + "})")));
-
+    CZAS_USTALANIA_POZYCJI("Czas ustalania pozycji wzgledem satelitow(UTC): ", data -> String.join(":", data.split("(?<=\\G.{" + 2 + "})"))),
+    SCIEZKA("ścieżka poruszania się (w stopniach): ", data -> data),
+    SCIEZKA_MAGN("Sciezka poruszania sie na podstawie współrzędnych magnetycznych – w stopniach", data -> data),
+    PREDKOSC_KM("Predkosc w km/h", data -> data.split("\\*")[0]);
 
     Parametry(String name, Function<String, String> mappingFunction) {
         this.name = name;

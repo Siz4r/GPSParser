@@ -1,5 +1,4 @@
 public class GPGSV extends GPSReader{
-    @Override
     public void parse(String[] data) {
         ParsedData.getParsedData().put(Parametry.SUMA, data[data.length - 1]);
         ParsedData.getParsedData().put(Parametry.WIDOCZNE_SATELITY, data[3]);

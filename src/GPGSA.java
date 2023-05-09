@@ -1,7 +1,6 @@
 import java.util.Arrays;
 
 public class GPGSA extends GPSReader{
-    @Override
     public void parse(String[] data) {
         ParsedData.getParsedData().put(Parametry.OKRESLENIE_POZYCJI, data[1] + data[2]);
         ParsedData.getParsedData().put(Parametry.SUMA, data[data.length - 1]);

@@ -1,6 +1,5 @@
 public class GPGGA extends GPSReader {
 
-    @Override
     public void parse(String[] data) {
         ParsedData.getParsedData().put(Parametry.WYSOKOSC_GEOID, data[9] + " " + data[10]);
         ParsedData.getParsedData().put(Parametry.DLUGOSC, data[4] + " " + data[5]);
